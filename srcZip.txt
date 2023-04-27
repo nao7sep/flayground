@@ -1,0 +1,15 @@
+﻿[Delete]
+Compiled
+
+[Copy]
+flayground/bin/Release/net6.0 > Compiled
+
+[Exclude]
+.git
+.vs
+Archived
+flayground/bin
+flayground/obj
+.gitignore
+README.md
+taskKiller.txt

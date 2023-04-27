@@ -171,6 +171,8 @@ namespace flayground
 
         private static void iCompressFiles (IEnumerable <string> paths)
         {
+            // 「秒」までの再現性が必要なところでは UTC を使うが、ここでの日付はバージョン番号の代わり
+
             string xZipFilePath = Path.Join (Environment.GetFolderPath (Environment.SpecialFolder.DesktopDirectory),
                 $"flayground-{DateTime.Today.ToString ("yyyyMMdd")}.zip");
 
@@ -184,6 +186,15 @@ namespace flayground
                     File.Delete (xPath);
 #endif
                 }
+
+                void iAddLicenseFile (string directoryPath, string fontName)
+                {
+                    xArchive.CreateEntryFromFile (Path.Join (directoryPath, "LICENSE"), $"LICENSE-{fontName}");
+                }
+
+                // それぞれの LICENSE ファイル内でフォント名は "UDEV Gothic", "PlemolJP" とされている
+                iAddLicenseFile (mUdevGothicDirectoryPath, "UDEVGothic");
+                iAddLicenseFile (mPlemolJpDirectoryPath, "PlemolJP");
             }
         }
 

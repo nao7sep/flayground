@@ -171,10 +171,8 @@ namespace flayground
 
         private static void iCompressFiles (IEnumerable <string> paths)
         {
-            // 「秒」までの再現性が必要なところでは UTC を使うが、ここでの日付はバージョン番号の代わり
-
             string xZipFilePath = Path.Join (Environment.GetFolderPath (Environment.SpecialFolder.DesktopDirectory),
-                $"flayground-{DateTime.Today.ToString ("yyyyMMdd")}.zip");
+                $"flayground-v●-fonts.zip"); // これを生成するソースのバージョン番号との一致を忘れない名前に
 
             using (FileStream xStream = new FileStream (xZipFilePath, FileMode.Create)) // あれば上書き
             using (ZipArchive xArchive = new ZipArchive (xStream, ZipArchiveMode.Create, leaveOpen: false))

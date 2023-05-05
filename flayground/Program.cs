@@ -123,14 +123,17 @@ namespace flayground
 
                 string iReplace (string value)
                 {
+                    // 長いものから順に置換
+                    // 最後に、置換しすぎを直す
+
                     return value.
-                        Replace ("UDEV Gothic JPDOC", "Udev").
-                        Replace ("UDEVGothicJPDOC", "Udev").
                         Replace ("UDEV Gothic 35JPDOC", "Udev39").
+                        Replace ("UDEV Gothic JPDOC", "Udev").
                         Replace ("UDEVGothic35JPDOC", "Udev39").
-                        Replace ("PlemolJP", "Plemol").
-                        Replace ("PlemolJP35", "Plemol39").
-                        Replace ("[Plemol]", "[PlemolJP]");
+                        Replace ("UDEVGothicJPDOC", "Udev").
+                        Replace ("PlemolJP35", "Plemo39").
+                        Replace ("PlemolJP", "Plemo").
+                        Replace ("[Plemo]", "[PlemolJP]");
                 }
 
                 string xNewFileContents = iReplace (xFileContents);

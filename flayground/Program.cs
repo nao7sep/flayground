@@ -36,16 +36,16 @@ namespace flayground
         //      PlemolJP35-Italic.ttf
         //      PlemolJP35-Regular.ttf
 
-        private static string
+        private static readonly string
             mTtfautohintExeFilePath = @"C:\Repositories\Static\フォント\ttfautohint\ttfautohint.exe",
             mTtxExeFilePath = @"C:\Program Files\Python311\Scripts\ttx.exe",
             mUdevGothicDirectoryPath = @"C:\Repositories\Static\フォント\UDEVGothicJPDOC",
             mPlemolJpDirectoryPath = @"C:\Repositories\Static\フォント\PlemolJP";
 
         // .ttx の保存に
-        private static UTF8Encoding mEncoding = new UTF8Encoding (encoderShouldEmitUTF8Identifier: false);
+        private static readonly UTF8Encoding mEncoding = new UTF8Encoding (encoderShouldEmitUTF8Identifier: false);
 
-        private static List <string> mNewFilePaths = new List <string> ();
+        private static readonly List <string> mNewFilePaths = new List <string> ();
 
         private static void iHandleDirectory (string path)
         {
@@ -121,7 +121,7 @@ namespace flayground
 
                 // 雑だが動く
 
-                string iReplace (string value)
+                static string iReplace (string value)
                 {
                     // 長いものから順に置換
                     // 最後に、置換しすぎを直す
@@ -199,7 +199,7 @@ namespace flayground
             }
         }
 
-        static void Main (string [] args)
+        static void Main (/* string [] args */)
         {
             try
             {

@@ -1,8 +1,11 @@
 ﻿[Delete]
-Compiled
+App
 
 [Copy]
-flayground/bin/Release/net6.0 > Compiled
+flayground/bin/Release/net6.0 > App
+
+[Delete]
+App/flayground.pdb
 
 [Exclude]
 .git
